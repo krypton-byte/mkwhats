@@ -1,0 +1,2 @@
+class HmacValidatorError(Exception):
+    pass
