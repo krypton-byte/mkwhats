@@ -3,7 +3,7 @@ source: https://github.com/sigalor/whatsapp-web-reveng/blob/master/backend/whats
 """
 from google.protobuf import json_format
 import json
-import whatsapp_protobuf_pb2
+from . import whatsapp_protobuf_pb2
 
 
 

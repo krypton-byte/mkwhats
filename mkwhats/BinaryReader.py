@@ -1,7 +1,7 @@
 """
 source: https://github.com/sigalor/whatsapp-web-reveng/blob/master/backend/whatsapp_binary_reader.py
 """
-from whatsapp_defines import WATags, WASingleByteTokens, WADoubleByteTokens, WAWebMessageInfo
+from .whatsapp_defines import WATags, WASingleByteTokens, WADoubleByteTokens, WAWebMessageInfo
 
 
 
