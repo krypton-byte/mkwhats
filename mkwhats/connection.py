@@ -1,4 +1,3 @@
-import websockets
 from .BinaryReader import whatsappReadBinary
 import pyqrcode
 import json
@@ -88,6 +87,7 @@ class websocket_connection:
                     elif receive.split(',')[0] == 'get_qr': # qr detected
                         self.on.run_qr_function(json.loads(re.search(",(\{\".*?\}$)",receive).group(1))['ref'])
             except Exception as e:
+                print('Reconnecting....')
                 self.connect()
                 break
 
