@@ -1,9 +1,9 @@
 from os import MFD_CLOEXEC, pathconf_names
-
+from donna25519.keys import PrivateKey, PublicKey
 
 class user_enc:
-    mac = None
-    enc = None
+    mac = b''
+    enc = b''
 class phone_details:
     data = {}
     def __str__(self) -> str:
@@ -11,12 +11,12 @@ class phone_details:
     def __repr__(self) -> str:
         return self.__str__()
 class user_session:
-    clientId   = None
-    pushname   = None
-    publicKey  = None
-    privateKey = None
-    serverRef  = None
-    wid        = None
+    clientId   = ''
+    pushname   = ''
+    publicKey:PublicKey = b''
+    privateKey:PrivateKey = b''
+    serverRef  = ''
+    wid        = ''
     features   = {}
     phone      = phone_details()
     key        = user_enc()
@@ -36,12 +36,12 @@ class user_session:
 class websocket_session:
     clientToken  = None
     serverToken  = None
-    secret       = None
-    key_encrypted  = None
+    secret       = b''
+    key_encrypted  = b''
     browserToken = None
-    key_decrypted  = None
+    key_decrypted  = b''
     sharedSecret = None
-    sharedSecretExpanded = None
+    sharedSecretExpanded = b''
     me = None
     def __str__(self) -> str:
         return """{
@@ -53,15 +53,11 @@ class websocket_session:
 }"""%(self.clientToken, self.serverToken, self.secret, self.sharedSecret, self.me)
     def __repr__(self) -> str:
         return self.__str__()
-class qrsetting:
-    qr_color = 15
-    quiet_zone = 1
-    connection_isSend = False
-    connection_receive = ""
+
 class Session:
-    user      = user_session()
-    websocket = websocket_session()
-    qr        = qrsetting()
+    def __init__(self) -> None:
+        self.user      = user_session()
+        self.websocket = websocket_session()
     def __str__(self) -> str:
         return f"user {self.user.__str__()}\n weboskcet {self.websocket.__str__()}"
     def __repr__(self) -> str:

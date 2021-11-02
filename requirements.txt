@@ -1,0 +1,4 @@
+donna25519==0.1.1
+pyqrcode
+websocket-client==1.2.1
+
